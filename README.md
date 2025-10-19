@@ -23,6 +23,8 @@ A configurable Level-2 branch predictor (BTB + history + 2-bit FSM tables) with 
 branch-predictor-l2/
 ├─ src/
 │ └─ bp.c # my full implementation of the predictor
+├─ tools/
+│  └─ Makefile
 ├─ docs/
 │ └─ README_assets/ (optional images if you add diagrams)
 ├─ .gitignore
