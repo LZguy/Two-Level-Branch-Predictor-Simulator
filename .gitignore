@@ -53,3 +53,20 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# Local build / binary
+bp_main
+bp
+build/
+bin/
+
+# Logs / traces / temporary data
+*.log
+*.rpt
+*.trace
+*.out
+
+# Archives
+*.zip
+*.tar.gz
+
