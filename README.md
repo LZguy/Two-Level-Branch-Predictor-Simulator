@@ -3,6 +3,16 @@
 A full implementation of a configurable **two-level branch predictor** (BTB + history + 2-bit FSMs), supporting both **local** and **global** history and tables, with optional PC-sharing (LSB or MID).  
 Implements the `bp_api.h` interface and runs with the provided `bp_main.c` harness.
 
+This project simulates how modern CPUs predict branch outcomes to minimize pipeline stalls, implementing a configurable two-level branch predictor.
+
+---
+## 📑 Table of Contents
+- [Overview](#-overview)
+- [Project Structure](#-project-structure)
+- [Build Instructions](#-build-instructions)
+- [Run Example](#️-run-example)
+- [Implementation Details](#-implementation-details)
+- [Not Included](#-not-included)
 ---
 
 ## 📘 Overview
@@ -14,6 +24,8 @@ Implements the `bp_api.h` interface and runs with the provided `bp_main.c` harne
 - **Sharing modes** — optional XOR of history with slices of the PC (LSB or MID bits).  
 - **Update logic** — FSM updates use the *previous* history; mispredictions counted when predicted target ≠ actual.  
 - **Size calculation** — the code computes the predictor size in bits according to BTB fields, histories, and FSMs.
+
+Includes clean modular design and bit-accurate size computation, verified with multiple branch traces.
 
 ---
 
@@ -44,7 +56,7 @@ make clean  # removes object files and binary
 ---
 
 ## ▶️ Run Example
-The harness reads a trace file that specifies the configuration and branch events.
+The provided harness reads a configuration header and a sequence of branch events to simulate real execution traces.
 ### Example run:
 ```bash
 ./bp_main input_examples/config1.txt
@@ -86,3 +98,8 @@ flush_num: 26, br_num: 600, size: 14400b
 ## 🚫 Not Included
 - Course assignment PDF (CompArch-hw1.pdf)
 - Input traces (input_examples/)
+
+---
+## 🧩 Acknowledgment
+
+This project was developed as part of a Computer Architecture course to explore practical aspects of branch prediction and pipeline performance.
